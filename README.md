@@ -20,6 +20,7 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
+    <li><a href="#examples">Examples</a></li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
@@ -30,7 +31,6 @@
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#components">Components</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
-    <li><a href="#examples">Examples</a></li>
   </ol>
 </details>
 
@@ -41,7 +41,6 @@
 
 BookBrother is the premier mobile audio experience to listen to your epub books. Don’t have time to read or need to be somewhere else? No problem, just upload your epub to the app and click play from your library to begin getting knowledge injected into your earbuds.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 ### Built With
@@ -56,6 +55,11 @@ BookBrother is the premier mobile audio experience to listen to your epub books.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+## Examples
+
+Screenshots can be found [here](https://github.com/dho1994/Book-Brother/blob/main/EXAMPLES.md).
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -144,42 +148,6 @@ Refer to [this](https://github.com/rfp55-blue-ocean-blastoise/Blue-Ocean-Blastoi
 * Amazon S3
 * React Reader
 * Epub.js
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-## Examples
-
-### Library
-
-<p
-  align="center">
-  <img
-    alt="library" src="images/demo/1 - Library.png">
-</p>
-
-### Reading Now
-
-<p
-  align="center">
-  <img
-    alt="reading now" src="images/demo/2 - Reading Now.png">
-</p>
-
-### Book Viewer
-
-<p
-  align="center">
-  <img
-    alt="book viewer" src="images/demo/3 - Book.png">
-</p>
-
-### Narration Options
-
-<p
-  align="center">
-  <img
-    alt="narration options" src="images/demo/4 - Narration Options.png">
-</p>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
