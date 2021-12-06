@@ -30,6 +30,7 @@
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#components">Components</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#examples">Examples</a></li>
   </ol>
 </details>
 
@@ -138,7 +139,6 @@ Refer to [this](https://github.com/rfp55-blue-ocean-blastoise/Blue-Ocean-Blastoi
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
 ## Acknowledgments
 
 * Amazon S3
@@ -147,7 +147,41 @@ Refer to [this](https://github.com/rfp55-blue-ocean-blastoise/Blue-Ocean-Blastoi
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+## Examples
 
+### Library
+
+<p
+  align="center">
+  <img
+    alt="library" src="images/demo/1 - Library.png">
+</p>
+
+### Reading Now
+
+<p
+  align="center">
+  <img
+    alt="reading now" src="images/demo/2 - Reading Now.png">
+</p>
+
+### Book Viewer
+
+<p
+  align="center">
+  <img
+    alt="book viewer" src="images/demo/3 - Book.png">
+</p>
+
+### Narration Options
+
+<p
+  align="center">
+  <img
+    alt="narration options" src="images/demo/4 - Narration Options.png">
+</p>
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- Images -->
 
