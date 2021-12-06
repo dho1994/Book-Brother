@@ -44,8 +44,6 @@
 
 BookBrother is the premier mobile audio experience to listen to your epub books. Don’t have time to read or need to be somewhere else? No problem, just upload your epub to the app and click play from your library to begin getting knowledge injected into your earbuds.
 
-Perhaps a demo?
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
