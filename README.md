@@ -98,7 +98,6 @@ BookBrother is the premier mobile audio experience to listen to your epub books.
 
 * Refer to [this](https://github.com/rfp55-blue-ocean-blastoise/Blue-Ocean-Blastoise/blob/s3/API.md) for API usage.
 * Refer to [this](https://github.com/rfp55-blue-ocean-blastoise/Blue-Ocean-Blastoise/blob/main/Voice-Control.md) For Voice Commands.
-* Refer to [this](https://github.com/rfp55-blue-ocean-blastoise/Blue-Ocean-Blastoise/blob/main/Book-Viewer.md) For Book Player Features.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
