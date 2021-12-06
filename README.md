@@ -7,10 +7,6 @@
 
   ![book]
 
-  <p align="center">
-    Book Brother
-    <br />
-  </p>
 </div>
 
 
@@ -32,7 +28,7 @@
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#App Components">App Components</a></li>
+    <li><a href="#components">Components</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
@@ -109,28 +105,28 @@ Refer to [this](https://github.com/rfp55-blue-ocean-blastoise/Blue-Ocean-Blastoi
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-## App Components
+## Components
 
 
-### [Book Viewer and Narrator](client/components/player)
+### Book Viewer and Narrator
 
 - Developed by [Justin Beere](https://www.linkedin.com/in/justin-beere/), [Kevin Gao](https://www.linkedin.com/in/kevinzhugao/), [Lenora Esquenazi](https://www.linkedin.com/in/lenora-esquenazi/), [Matthew Boyle](https://www.linkedin.com/in/matthewboyle1989/)
 - Allows users to read an EPUB book along with a narration of the text. Users can change text size, speed, pitch, voice and choose to listen to a fireplace background if they so choose.
 
-### [Text-to-Speech and eBook Renderer Engineer](client/components/player)
+### Text-to-Speech and eBook Renderer Engineer
 
 - Developed by [Daniel Ho](https://www.linkedin.com/in/dho1994/)
 - Managed the eBook rendering and text-to-speech functionality for the Book Viewer and Narrator component, enabling real-time narration of rendered eBook display for the user.
 - When the user opens an eBook, narration will be initiated automatically. User is able to read and listen continuously, with the viewer automatically flipping to the next page once the current page has finished being narrated.
 - User may pause the narration for any amount of time and resume where he or she left off.
 
-### [Library and Voice Recognition](client/components/library)
+### Library and Voice Recognition
 
 - Developed by [Huong Nguyen](https://www.linkedin.com/in/huong-tran-nguyen/)
 - Library page displays a list of EPUB books available in the app. The "My Account" page displays a user-specific list of EPUB books separated into 2 sections: "Reading Now" and "My Books". Users can search and sort through the books, as well as upload a personal EPUB or add an EPUB book from the library to their account. Users can also play a book, remove a book from the "Reading Now" section, and delete a book from their account.
 - Users can use voice control to interact with the library and the book player by simply clicking on the microphone button to speak commands (please refer to the [voice command list](https://github.com/rfp55-blue-ocean-blastoise/Blue-Ocean-Blastoise/blob/main/Voice-Control.md))
 
-### [Backend Architecture](server), [Database](database) and [Authentication](client/components)
+### Backend Architecture, Database and Authentication
 
 - Developed by [Aaron Tran](https://www.linkedin.com/in/aaronltran/) and [Andrew Cho](https://www.linkedin.com/in/andrewgunncho/)
 - We chose MongoDB to represent each document as a user with their own personal array of books and each book object will have a bookmark and the link to the EPUB file. The EPUB files are hosted in Amazon S3 on upload.
@@ -142,8 +138,6 @@ Refer to [this](https://github.com/rfp55-blue-ocean-blastoise/Blue-Ocean-Blastoi
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-Project Link: [https://github.com/rfp55-blue-ocean-blastoise/Blue-Ocean-Blastoise](https://github.com/rfp55-blue-ocean-blastoise/Blue-Ocean-Blastoise)
 
 ## Acknowledgments
 
