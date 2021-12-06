@@ -15,7 +15,6 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import VpnKeyIcon from "@mui/icons-material/VpnKey";
 import IconButton from "@mui/material/IconButton";
-// import Upload from "./Upload";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -125,25 +124,12 @@ const Login = () => {
               &nbsp;
               Sign in with Google
             </Button>
-            {/* <div className="login-buttons">
-              <button
-                className="login-provider-button"
-                onClick={handleLoginForGoogle}
-              >
-                <img
-                  src="https://img.icons8.com/fluency/48/000000/google-logo.png"
-                  alt="google icon"
-                />{" "}<br/>
-                <span> Continue with Google</span>
-              </button>
-            </div> */}
             <div style={{ margin: "2em 0 1em 0", fontSize: "2vh" }}>
               Need to create an account? &nbsp;
               <Link to="/signup">Sign-Up</Link>
             </div>
           </Box>
         </form>
-        {/* <Upload/> */}
       </div>
     </div>
   );

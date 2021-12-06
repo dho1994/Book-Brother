@@ -28,8 +28,6 @@ import Epub from 'epubjs/lib/index';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 
 const MyAccount = (props) => {
-  // const [books, setBooks] = useState(bookMockData.slice().reverse());
-  // const [displayBooks, setDisplayBooks] = useState(bookMockData.slice().reverse());
   const [books, setBooks] = useState([]);
   const [displayBooks, setDisplayBooks] = useState([]);
   const [sortOption, setSortOption] = useState('recent');
@@ -80,7 +78,6 @@ const MyAccount = (props) => {
           }
         }
         if (Object.keys(book).length) {
-          console.log('THIS IS BOOK: ', book);
           handleReadBook(book);
         } else {
           voiceCommandError = <p>{`Can't find book with title: ${input}. Please try again`}</p>;
@@ -97,7 +94,6 @@ const MyAccount = (props) => {
             break;
           }
         }
-        console.log('THIS IS BOOK ID: ', bookId);
         if (bookId.length) {
           handleRemoveBook(bookId);
         } else {
@@ -141,7 +137,6 @@ const MyAccount = (props) => {
   const handleRemoveBook = (bookId) => {
     axios.delete('/account/library', { data: {email: value, id: bookId} } )
     .then(res => {
-      console.log(res);
       setOpenRemove(false);
       getUserData();
     })
@@ -167,13 +162,11 @@ const MyAccount = (props) => {
       .then(response => {
         const data = response.data.reverse();
         //expect data to be an array of book objects with 3 props: link, title, cfi
-        console.log('This is data from get /library:', data);
         const orderedData = data.map((book, index) => {
           let currBook = new Epub(book.link);
           currBook.ready.then(() => {
             currBook.coverUrl()
             .then((results) => {
-              // console.log(`${book.title} cover url: , ${results}`);
               if(results) {
                 document.getElementById(book.link).src = results;
                 book.coverURL = results;
@@ -205,7 +198,6 @@ const MyAccount = (props) => {
 
   const handleMoveToMyBooks = (e) => {
     e.preventDefault();
-    console.log('book id', e.target.value);
     axios.put('/account/bookmark', {
       email: value,
       id: e.target.value,

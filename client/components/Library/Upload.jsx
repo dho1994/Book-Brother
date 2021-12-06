@@ -8,13 +8,11 @@ const Upload = (props) => {
 
   const handleUpload = (e) => {
     e.preventDefault();
-    console.log('upload clicked!')
     const formData = new FormData();
     formData.append("epub", files);
     formData.append("email", value);
     axios.post('/account/upload', formData, {headers: {'Content-Type': 'multipart/form-data'}})
       .then((response) => {
-        console.log('This is response from upload: ', response);
         props.handleCloseUpload();
         props.getUserData();
       })

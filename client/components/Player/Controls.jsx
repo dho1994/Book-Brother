@@ -111,7 +111,6 @@ const Controls = ({ handleResume, handlePause, parameters, setParameters, showMo
           >
             {fontSizeOptions.map(item => (
               <MenuItem style={{ fontSize: '1.5vh' }} onClick={() => {
-                console.log('THIS IS SELECTED FONT SIZE: ', item);
                 setSize(item);
                 handlePause();
               }}>
@@ -211,7 +210,6 @@ const Controls = ({ handleResume, handlePause, parameters, setParameters, showMo
                 step={0.1}
                 value={backgroundV}
                 onChange={(e) => {
-                  console.log(e.target.value, 'bgv')
                   setBackgroundV(e.target.value);
                   handlePause();
                 }}
@@ -261,48 +259,6 @@ const Controls = ({ handleResume, handlePause, parameters, setParameters, showMo
               </MenuItem>
             ))}
           </Menu>
-          {/* <div style={{ display: 'flex', alignItems: 'center', margin: '1rem 1rem 1rem 0' }}>
-            <h2 style={{ fontSize: '2vh'}} >Music Options</h2>
-            <IconButton
-              aria-label="more"
-              id="long-button"
-              aria-controls="long-menu"
-              aria-expanded={openMusic ? 'true' : undefined}
-              aria-haspopup="true"
-              onClick={handleClickMusicOption}
-            >
-              <MoreVertIcon />
-            </IconButton>
-          </div>
-          <Menu
-            id="long-menu"
-            MenuListProps={{
-              'aria-labelledby': 'long-button',
-            }}
-            anchorEl={anchorElMusic}
-            open={openMusic}
-            onClose={handleCloseMusicOption}
-            anchorOrigin={{
-              vertical: 'top',
-              horizontal: 'right',
-            }}
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'left',
-            }}
-            PaperProps={{
-              style: {
-                maxHeight: '8vh',
-                width: '16vh',
-              },
-            }}
-          >
-            {music.map((option) => (
-              <MenuItem key={option} selected={option === selectedSong} onClick={() => setSelectedSong(option)} sx={{ fontSize: '1.5vh' }}>
-                {option}
-              </MenuItem>
-            ))}
-          </Menu> */}
         </Box>
       </StyledModal>
     </div>

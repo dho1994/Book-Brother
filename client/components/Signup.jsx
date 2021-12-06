@@ -38,7 +38,6 @@ const Signup = () => {
         })
           .then((res) => {
             setValue(email);
-            console.log(res);
           })
           .catch((err) => console.log(err, "err from post user to mongo"));
       })

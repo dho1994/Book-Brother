@@ -90,7 +90,6 @@ const updateBookmark = async ({
 
 const deleteBook = async ({ email, id }) => {
   try {
-    // const { email, id } = body;
     const results = await Brother.updateOne(
       { email },
       { $pull: { books: { _id: id } } },

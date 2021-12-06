@@ -103,7 +103,6 @@ const Library = (props) => {
       .then(response => {
         const data = response.data.reverse();
         //expect data to be an array of book objects with 5 props: Key, Etag, size, URL
-        console.log('This is data from get /library:', data);
         const orderedData = data.map((book, index) => {
           let currBook = new Epub(book.URL);
           currBook.ready.then(() => {
@@ -123,7 +122,6 @@ const Library = (props) => {
           book.id = index;
           return book;
         })
-        console.log(orderedData)
         setBooks(orderedData);
         setDisplayBooks(orderedData);
       })
@@ -133,15 +131,11 @@ const Library = (props) => {
   };
 
   const handleAddBook = (book) => {
-    console.log('BODY FOR REQ: ', value, book.URL, book.title);
     axios.post('/account/library', {
       email: value,
       link: book.URL,
       title: book.title
     })
-      .then(response => {
-        console.log(response);
-      })
       .catch(err => {
         console.log(err);
       })

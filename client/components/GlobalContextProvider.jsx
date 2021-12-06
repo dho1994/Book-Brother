@@ -28,6 +28,3 @@ const GlobalContextProvider = (props) => {
 };
 
 export default GlobalContextProvider;
-
-// To access value in a component:
-// const { value, setValue } = useContext(GlobalContext);
