@@ -104,13 +104,17 @@ const Library = (props) => {
       .then(response => {
         const data = response.data.reverse()
           .filter((book) => Constants.EXCLUDED_BOOKS[book.URL] !== true);
+          console.log(data)
         //expect data to be an array of book objects with 5 props: Key, Etag, size, URL
         const orderedData = data.map((book, index) => {
           let currBook = new Epub(book.URL);
           currBook.ready.then(() => {
             currBook.coverUrl()
             .then((results) => {
-              if(results) {
+              if (Constants.EDITED_COVERS[book.URL]) {
+                document.getElementById(book.URL).src = `/${Constants.EDITED_COVERS[book.URL]}`;
+                book.coverURL = `/${Constants.EDITED_COVERS[book.URL]}`;
+              } else if (results) {
                 document.getElementById(book.URL).src = results;
                 book.coverURL = results;
               } else {

@@ -163,13 +163,17 @@ const MyAccount = (props) => {
       .then(response => {
         const data = response.data.reverse()
           .filter((book) => Constants.EXCLUDED_BOOKS[book.link] !== true);
+          console.log(data)
         //expect data to be an array of book objects with 3 props: link, title, cfi
         const orderedData = data.map((book, index) => {
           let currBook = new Epub(book.link);
           currBook.ready.then(() => {
             currBook.coverUrl()
             .then((results) => {
-              if(results) {
+              if (Constants.EDITED_COVERS[book.link]) {
+                document.getElementById(book.link).src = `/${Constants.EDITED_COVERS[book.link]}`;
+                book.coverURL = `/${Constants.EDITED_COVERS[book.link]}`;
+              } else if (results) {
                 document.getElementById(book.link).src = results;
                 book.coverURL = results;
               } else {
