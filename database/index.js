@@ -1,8 +1,15 @@
 const mongoose = require('mongoose');
 const config = require('../config.js');
 
+/*
+// Justin's mongodb cluster
 mongoose.connect(
   `mongodb+srv://brother:${config.mongoPW}@bookbrother.s3z1y.mongodb.net/brotherdb?retryWrites=true&w=majority`,
+);
+*/
+
+mongoose.connect(
+  `mongodb+srv://bookbrother:${config.mongoPW}@bookbrother.qlzt4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
 );
 
 const db = mongoose.connection;
