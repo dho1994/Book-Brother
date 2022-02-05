@@ -57,8 +57,7 @@ const Login = () => {
 
   return (
     <div className="login">
-      <h1 style={{ fontSize: '7vh', marginBottom: 0, color: '#212121' }}> BookBrother</h1>
-      <h2 style={{ fontSize: '3vh', width: '70%', textAlign: 'center' }}>The Premier Mobile Audio Experience to Listen to Your Books</h2>
+      <img src="./assets/Logo.png" />
       <h3 style={{ fontSize: '2vh', width: '70%', textAlign: 'center' }}>
         Don’t have time to read? No problem, just upload your book to the app and start getting knowledge injected into your earbuds.
       </h3>
@@ -112,7 +111,15 @@ const Login = () => {
                 />
               </FormControl>
             </Box>
-            <Button variant='contained' style={{ backgroundColor: '#0c6057', fontSize: '1.5vh', margin: "0 0 1em 0" }} type='submit' onSubmit={loginUser}>
+            <Button variant='contained' style={{ fontSize: '1.5vh', margin: "0 0 1em 0" }}
+              sx={{
+                backgroundColor: '#11A797',
+                ':hover': {
+                  backgroundColor: '#70baa4',
+                },
+              }}
+              type='submit'
+              onSubmit={loginUser}>
               Sign In
             </Button>
             <Button variant='contained' style={{ backgroundColor: '#fff', fontSize: '1.5vh', margin: "0 0 1em 0", color: '#000' }} type='submit' onClick={handleLoginForGoogle}>

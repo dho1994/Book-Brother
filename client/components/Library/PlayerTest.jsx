@@ -176,7 +176,7 @@ const Player = (props) => {
 
       renditionRef.current.book.getRange(cfiRange).then(function (range) {
         let text = range.toString()
-        axios.post('/audio', {data: text})
+        axios.post('/audio', { data: text })
           .catch((err) => console.error(err));
         if (text && text.length > 0 && text !== "\n  ") {
           responsiveVoice.speak(text, "UK English Female", parameters);
@@ -194,7 +194,7 @@ const Player = (props) => {
           text: renditionRef.current.getRange(cfiRange).toString(),
           cfiRange
         }))
-        renditionRef.current.annotations.add("highlight", cfiRange, {}, null, "hl", { "fill": "red", "fill-opacity": "0.5"})
+        renditionRef.current.annotations.add("highlight", cfiRange, {}, null, "hl", { "fill": "red", "fill-opacity": "0.5" })
         contents.window.getSelection().removeAllRanges()
       }
       renditionRef.current.on("selected", setRenderSelection)
@@ -205,7 +205,7 @@ const Player = (props) => {
   }, [setSelections, selections])
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
       <div style={{ height: '90vh' }}>
         <ReactReader
           location={location}
@@ -281,9 +281,9 @@ const Player = (props) => {
               horizontal: 'left',
             }}
           >
-          {fontSizeOptions.map(item => (
-            <MenuItem style={{ fontSize: '1rem'}} onClick={() => handleSelectFontSize(item)}>{item}</MenuItem>
-          ))}
+            {fontSizeOptions.map(item => (
+              <MenuItem style={{ fontSize: '1rem' }} onClick={() => handleSelectFontSize(item)}>{item}</MenuItem>
+            ))}
           </Menu>
         </div>
       </div>
@@ -295,32 +295,32 @@ const Player = (props) => {
         BackdropComponent={Backdrop}
       >
         <Box sx={style}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', margin: '1rem 1rem 1rem 0'}}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', margin: '1rem 1rem 1rem 0' }}>
             <h2 style={{ textAlign: 'center' }}>Volume&nbsp;</h2>
-            <div style={{ width: '15rem', display: 'flex', justfyContent: 'center', alignItems: 'center', marginTop: '0.3rem'}}>
+            <div style={{ width: '15rem', display: 'flex', justfyContent: 'center', alignItems: 'center', marginTop: '0.3rem' }}>
               <VolumeDown />
-              <Slider style={{ color: '#11A797', margin: '0 0.5rem'}} aria-label="Volume" value={volumeValue} onChange={handleVolumeChange} />
+              <Slider style={{ color: '#11A797', margin: '0 0.5rem' }} aria-label="Volume" value={volumeValue} onChange={handleVolumeChange} />
               <VolumeUp />
             </div>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', margin: '1rem 1rem 1rem 0'}}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', margin: '1rem 1rem 1rem 0' }}>
             <h2 style={{ textAlign: 'center' }}>Speed&nbsp;</h2>
-            <div style={{ width: '15rem', display: 'flex', justfyContent: 'center', alignItems: 'center', marginTop: '0.3rem'}}>
+            <div style={{ width: '15rem', display: 'flex', justfyContent: 'center', alignItems: 'center', marginTop: '0.3rem' }}>
               <RemoveIcon />
-              <Slider style={{ color: '#11A797', margin: '0 0.5rem'}} aria-label="Volume" value={speedValue} onChange={handleSpeedChange} />
+              <Slider style={{ color: '#11A797', margin: '0 0.5rem' }} aria-label="Volume" value={speedValue} onChange={handleSpeedChange} />
               <AddIcon />
             </div>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', margin: '1rem 1rem 1rem 0'}}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', margin: '1rem 1rem 1rem 0' }}>
             <h2 style={{ textAlign: 'center' }}>Pitch&nbsp;</h2>
-            <div style={{ width: '15rem', display: 'flex', justfyContent: 'center', alignItems: 'center', marginTop: '0.3rem'}}>
+            <div style={{ width: '15rem', display: 'flex', justfyContent: 'center', alignItems: 'center', marginTop: '0.3rem' }}>
               <RemoveIcon />
-              <Slider style={{ color: '#11A797', margin: '0 0.5rem'}} aria-label="Volume" value={pitchValue} onChange={handlePitchChange} />
+              <Slider style={{ color: '#11A797', margin: '0 0.5rem' }} aria-label="Volume" value={pitchValue} onChange={handlePitchChange} />
               <AddIcon />
             </div>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', margin: '1rem 1rem 1rem 0'}}>
-          <h2 >Voice Options</h2>
+          <div style={{ display: 'flex', alignItems: 'center', margin: '1rem 1rem 1rem 0' }}>
+            <h2 >Voice Options</h2>
             <IconButton
               aria-label="more"
               id="long-button"
@@ -331,36 +331,36 @@ const Player = (props) => {
             >
               <MoreVertIcon />
             </IconButton>
-            </div>
-            <Menu
-              id="long-menu"
-              MenuListProps={{
-                'aria-labelledby': 'long-button',
-              }}
-              anchorEl={anchorElVoice}
-              open={openVoice}
-              onClose={handleCloseVoiceOption}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              PaperProps={{
-                style: {
-                  maxHeight: '5rem',
-                  width: '8rem',
-                },
-              }}
-            >
-              {voiceOptions.map((option) => (
-                <MenuItem key={option} selected={option === 'Default'} onClick={() => handleSelectVoiceOption(option)}>
-                  {option}
-                </MenuItem>
-              ))}
-            </Menu>
+          </div>
+          <Menu
+            id="long-menu"
+            MenuListProps={{
+              'aria-labelledby': 'long-button',
+            }}
+            anchorEl={anchorElVoice}
+            open={openVoice}
+            onClose={handleCloseVoiceOption}
+            anchorOrigin={{
+              vertical: 'top',
+              horizontal: 'right',
+            }}
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'left',
+            }}
+            PaperProps={{
+              style: {
+                maxHeight: '5rem',
+                width: '8rem',
+              },
+            }}
+          >
+            {voiceOptions.map((option) => (
+              <MenuItem key={option} selected={option === 'Default'} onClick={() => handleSelectVoiceOption(option)}>
+                {option}
+              </MenuItem>
+            ))}
+          </Menu>
         </Box>
       </StyledModal>
     </div>

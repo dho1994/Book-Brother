@@ -49,20 +49,32 @@ const Controls = ({ handleResume, handlePause, parameters, setParameters, showMo
     <div>
       <div style={{ textAlign: 'center', padding: '2rem' }}>
         {page}
-        <h1 style={{ fontSize: '3vh'}}>{book.title}</h1>
+        <h1 style={{ fontSize: '3vh' }}>{book.title}</h1>
         <div id="audio-controls">
           <Button
-            style={{ marginRight: '1rem', backgroundColor: '#11A797' }}
+            style={{ marginRight: '1rem' }}
+            sx={{
+              backgroundColor: '#11A797',
+              ':hover': {
+                backgroundColor: '#70baa4',
+              },
+            }}
             size='small'
             variant='contained'
             type='button'
-            onClick={() => {setShowModal(true); handlePause()}}
+            onClick={() => { setShowModal(true); handlePause() }}
           >
             <SettingsIcon />
           </Button>
           {isPlaying ? (
             <Button
-              style={{ marginRight: '1rem', backgroundColor: '#11A797' }}
+              style={{ marginRight: '1rem' }}
+              sx={{
+                backgroundColor: '#11A797',
+                ':hover': {
+                  backgroundColor: '#70baa4',
+                },
+              }}
               size='small'
               variant='contained'
               type='button'
@@ -72,7 +84,13 @@ const Controls = ({ handleResume, handlePause, parameters, setParameters, showMo
             </Button>
           ) : (
             <Button
-              style={{ marginRight: '1rem', backgroundColor: '#11A797' }}
+              style={{ marginRight: '1rem' }}
+              sx={{
+                backgroundColor: '#11A797',
+                ':hover': {
+                  backgroundColor: '#70baa4',
+                },
+              }}
               size='small'
               variant='contained'
               type='button'
@@ -86,7 +104,13 @@ const Controls = ({ handleResume, handlePause, parameters, setParameters, showMo
             aria-controls="demo-positioned-menu"
             aria-haspopup="true"
             aria-expanded={openFont ? 'true' : undefined}
-            style={{ marginRight: '1rem', backgroundColor: '#11A797' }}
+            style={{ marginRight: '1rem' }}
+              sx={{
+                backgroundColor: '#11A797',
+                ':hover': {
+                  backgroundColor: '#70baa4',
+                },
+              }}
             size='small'
             variant='contained'
             type='button'
@@ -124,7 +148,7 @@ const Controls = ({ handleResume, handlePause, parameters, setParameters, showMo
         aria-labelledby="unstyled-modal-title"
         aria-describedby="unstyled-modal-description"
         open={showModal}
-        onClose={() => {setShowModal(false); handlePause()}}
+        onClose={() => { setShowModal(false); handlePause() }}
         BackdropComponent={Backdrop}
       >
         <Box sx={style}>
@@ -146,9 +170,9 @@ const Controls = ({ handleResume, handlePause, parameters, setParameters, showMo
               <VolumeUp />
             </div>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', margin: '1rem 1rem 1rem 0'}}>
-            <h2 style={{ textAlign: 'center', fontSize: '2vh'  }}>Speed&nbsp;</h2>
-            <div style={{ width: '20vh', display: 'flex', justfyContent: 'center', alignItems: 'center', marginTop: '0.3rem'}}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', margin: '1rem 1rem 1rem 0' }}>
+            <h2 style={{ textAlign: 'center', fontSize: '2vh' }}>Speed&nbsp;</h2>
+            <div style={{ width: '20vh', display: 'flex', justfyContent: 'center', alignItems: 'center', marginTop: '0.3rem' }}>
               <RemoveIcon />
               <Slider
                 min={0.1}
@@ -218,7 +242,7 @@ const Controls = ({ handleResume, handlePause, parameters, setParameters, showMo
             </div>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', margin: '1rem 1rem 1rem 0' }}>
-            <h2 style={{ fontSize: '2vh'}} >Voice Options</h2>
+            <h2 style={{ fontSize: '2vh' }} >Voice Options</h2>
             <IconButton
               aria-label="more"
               id="long-button"

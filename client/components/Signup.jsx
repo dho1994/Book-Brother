@@ -48,7 +48,7 @@ const Signup = () => {
     <BrowserRouter>
       <div className="login">
         <h1 style={{ fontSize: '7vh', marginBottom: 0, color: '#212121' }}> BookBrother</h1>
-        <h2 style={{ fontSize: '3vh', width: '70%', textAlign: 'center'}} >The Premier Mobile Audio Experience to Listen to Your Books</h2>
+        <h2 style={{ fontSize: '3vh', width: '70%', textAlign: 'center' }} >The Premier Mobile Audio Experience to Listen to Your Books</h2>
         <form type="submit" onSubmit={createUser}>
           <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column', p: '0', border: '1px solid #212121', padding: '2vh', borderRadius: '5px 5px 5px', boxShadow: '0px 0px 3px 2px rgba(0, 0, 0, 0.2)', mt: '1rem', width: '35vh', mixWidth: '10px', height: 'fit-content' }}>
             <h2 style={{ fontSize: '3vh' }} >Sign-Up</h2>
@@ -65,7 +65,7 @@ const Signup = () => {
                     </InputAdornment>
                   }
                   required
-                  />
+                />
               </FormControl>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'flex-end', mb: '2em' }}>
@@ -81,16 +81,23 @@ const Signup = () => {
                       <IconButton
                         aria-label='toggle password visibility'
                         onClick={() => setShowPassword(!showPassword)}
-                        >
+                      >
                         {showPassword ? <VisibilityOff /> : <Visibility />}
                       </IconButton>
                     </InputAdornment>
                   }
                   required
-                  />
+                />
               </FormControl>
             </Box>
-            <Button variant='contained' style={{ backgroundColor: '#0c6057', fontSize: '1.5vh', marginBottom: '1em' }} type='submit' onSubmit={createUser}>
+            <Button variant='contained' style={{ fontSize: '1.5vh', marginBottom: '1em' }}
+              sx={{
+                backgroundColor: '#11A797',
+                ':hover': {
+                  backgroundColor: '#70baa4',
+                },
+              }}
+              type='submit' onSubmit={createUser}>
               Create Account
             </Button>
           </Box>

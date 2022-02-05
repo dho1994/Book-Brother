@@ -126,7 +126,7 @@ const MyAccount = (props) => {
       setBooks(sortedBooks);
       setDisplayBooks(sortedDisplayBooks);
     }
-  },[sortOption])
+  }, [sortOption])
 
   const handleCloseUpload = () => setOpenUpload(false);
 
@@ -136,14 +136,14 @@ const MyAccount = (props) => {
   };
 
   const handleRemoveBook = (bookId) => {
-    axios.delete('/account/library', { data: {email: value, id: bookId} } )
-    .then(res => {
-      setOpenRemove(false);
-      getUserData();
-    })
-    .catch(err => {
-      console.log('Error sending put request to remove book: ', err);
-    });
+    axios.delete('/account/library', { data: { email: value, id: bookId } })
+      .then(res => {
+        setOpenRemove(false);
+        getUserData();
+      })
+      .catch(err => {
+        console.log('Error sending put request to remove book: ', err);
+      });
   };
 
   const handleSearch = (searchedStr) => {
@@ -163,25 +163,25 @@ const MyAccount = (props) => {
       .then(response => {
         const data = response.data.reverse()
           .filter((book) => Constants.EXCLUDED_BOOKS[book.link] !== true);
-          console.log(data)
+        console.log(data)
         //expect data to be an array of book objects with 3 props: link, title, cfi
         const orderedData = data.map((book, index) => {
           let currBook = new Epub(book.link);
           currBook.ready.then(() => {
             currBook.coverUrl()
-            .then((results) => {
-              if (Constants.EDITED_COVERS[book.link]) {
-                document.getElementById(book.link).src = `/${Constants.EDITED_COVERS[book.link]}`;
-                book.coverURL = `/${Constants.EDITED_COVERS[book.link]}`;
-              } else if (results) {
-                document.getElementById(book.link).src = results;
-                book.coverURL = results;
-              } else {
-                document.getElementById(book.link).src = '/book-cover.png';
-                book.coverURL = '/book-cover.png'
-              }
-            })
-            .catch((err) => console.error(err));
+              .then((results) => {
+                if (Constants.EDITED_COVERS[book.link]) {
+                  document.getElementById(book.link).src = `/${Constants.EDITED_COVERS[book.link]}`;
+                  book.coverURL = `/${Constants.EDITED_COVERS[book.link]}`;
+                } else if (results) {
+                  document.getElementById(book.link).src = results;
+                  book.coverURL = results;
+                } else {
+                  document.getElementById(book.link).src = '/book-cover.png';
+                  book.coverURL = '/book-cover.png'
+                }
+              })
+              .catch((err) => console.error(err));
           });
           if (book.title.slice(book.title.length - 5, book.title.length) === '.epub') {
             book.title = book.title.slice(0, book.title.length - 5);
@@ -222,10 +222,16 @@ const MyAccount = (props) => {
 
   return (
     <div>
-      <div className='banner' style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%'}}>
-        <h1 style={{ fontSize: '7vw', marginLeft: '5%' }} > BookBrother</h1>
+      <div className='banner' style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
+        <img src="./assets/Logo.png" />
         <Button
-          style={{ height: '2rem', backgroundColor: '#0c6057', marginRight: '5%', fontSize: '80%', width: 'fit-content', padding: 'auto' }}
+          style={{ height: '2rem', marginRight: '5%', fontSize: '80%', width: 'fit-content', padding: 'auto' }}
+          sx={{
+            backgroundColor: '#11A797',
+            ':hover': {
+              backgroundColor: '#70baa4',
+            },
+          }}
           size='small'
           variant='contained'
           type='button'
@@ -239,21 +245,28 @@ const MyAccount = (props) => {
           value={tab}
           onChange={(e, newVal) => setTab(newVal)}
           textColor='inherit'
-          TabIndicatorProps={{ style: {
-            background: 'linear-gradient(61deg, rgba(201,221,148,1) 0%, rgba(143,198,144,1) 25%, rgba(109,184,141,1) 51%, rgba(143,198,144,1) 81%, rgba(201,221,148,1) 100%)',
-            height: '5px'
-          }}}
+          TabIndicatorProps={{
+            style: {
+              background: 'linear-gradient(61deg, rgba(201,221,148,1) 0%, rgba(143,198,144,1) 25%, rgba(109,184,141,1) 51%, rgba(143,198,144,1) 81%, rgba(201,221,148,1) 100%)',
+              height: '5px'
+            }
+          }}
           aria-label="secondary tabs example"
           centered
         >
-          <Tab label='My Account' value='My Account' sx={{ fontWeight: 'bold', fontSize: '2vh' }} component={Link} to={'/home'}/>
-          <Tab label='Library' value='Library' sx={{ fontWeight: 'bold', fontSize: '2vh' }}  component={Link} to={'/freelibrary'}/>
+          <Tab label='My Account' value='My Account' sx={{ fontWeight: 'bold', fontSize: '2vh' }} component={Link} to={'/home'} />
+          <Tab label='Library' value='Library' sx={{ fontWeight: 'bold', fontSize: '2vh' }} component={Link} to={'/freelibrary'} />
         </Tabs>
       </Box>
-      <div style={{display: 'flex', justifyContent: 'center', padding: '2rem', flexWrap: 'wrap' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', padding: '2rem', flexWrap: 'wrap' }}>
         <Search handleSearch={handleSearch} />
         <Button
-          sx={{ backgroundColor: '#11A797' }}
+          sx={{
+            backgroundColor: '#11A797',
+            ':hover': {
+              backgroundColor: '#70baa4',
+            },
+          }}
           size='small'
           variant='contained'
           type='button'
@@ -262,10 +275,15 @@ const MyAccount = (props) => {
           <FileUploadIcon />
         </Button>
       </div>
-      <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
         <Button
           variant='contained'
-          sx={{ backgroundColor: '#11A797' }}
+          sx={{
+            backgroundColor: '#11A797',
+            ':hover': {
+              backgroundColor: '#70baa4',
+            },
+          }}
           size='small'
           type='button'
           onClick={SpeechRecognition.startListening}
@@ -286,7 +304,7 @@ const MyAccount = (props) => {
             style={{ fontSize: '2vh' }}
             value={sortOption}
             onChange={handleSortOptionChange}
-            >
+          >
             <MenuItem value={'recent'}>Recent</MenuItem>
             <MenuItem value={'title'}>Title</MenuItem>
           </Select>
@@ -294,42 +312,42 @@ const MyAccount = (props) => {
       </div>
       <div style={{ display: 'flex', padding: '2rem 4rem', flexWrap: 'wrap' }}>
         {displayBooks.filter(book => book.remainingText !== '').length === 0 ?
-          <p style={{margin: '1rem', fontSize: '1.2rem'}}>No Books</p>
+          <p style={{ margin: '1rem', fontSize: '1.2rem' }}>No Books</p>
           : displayBooks.filter(book => book.remainingText !== '').map(book => (
-          <Card sx={{ width: '15rem', margin: '1rem', height: '25rem' }}>
-            <img id={book.link} src={book.coverURL} style={{ width: '100%', height: '65%'}} />
-            <CardContent sx={{ height: '4rem' }}>
-              <Typography gutterBottom variant='subtitle1' component='div' sx={{ textAlign: 'center', padding: 'auto', fontSize: '1.8vh' }}>
-                {book.title}
-              </Typography>
-            </CardContent>
-            <CardActions sx={{ display: 'flex', justifyContent: 'center' }}>
-              <Button size='medium' style={{ color:'#0c6057' }} value={JSON.stringify(book)} onClick={e => handleReadBook(JSON.parse(e.target.value))}>Resume</Button>
-              <Button size='medium' value={book['_id']} color='warning' onClick={handleMoveToMyBooks}>Remove</Button>
-            </CardActions>
-          </Card>
-        ))}
+            <Card sx={{ width: '15rem', margin: '1rem', height: '25rem' }}>
+              <img id={book.link} src={book.coverURL} style={{ width: '100%', height: '65%' }} />
+              <CardContent sx={{ height: '4rem' }}>
+                <Typography gutterBottom variant='subtitle1' component='div' sx={{ textAlign: 'center', padding: 'auto', fontSize: '1.8vh' }}>
+                  {book.title}
+                </Typography>
+              </CardContent>
+              <CardActions sx={{ display: 'flex', justifyContent: 'center' }}>
+                <Button size='medium' style={{ color: '#0c6057' }} value={JSON.stringify(book)} onClick={e => handleReadBook(JSON.parse(e.target.value))}>Resume</Button>
+                <Button size='medium' value={book['_id']} color='warning' onClick={handleMoveToMyBooks}>Remove</Button>
+              </CardActions>
+            </Card>
+          ))}
       </div>
       <h1 style={{ padding: '0 2rem', fontSize: '3vh' }}>My Books</h1>
       <div style={{ display: 'flex', padding: '2rem 4rem', flexWrap: 'wrap' }}>
-        {displayBooks.filter(book => book.remainingText === '').length === 0  ?
-          <p style={{margin: '1rem', fontSize: '1.2rem'}}>No Books</p>
+        {displayBooks.filter(book => book.remainingText === '').length === 0 ?
+          <p style={{ margin: '1rem', fontSize: '1.2rem' }}>No Books</p>
           : displayBooks.filter(book => book.remainingText === '').map(book => (
-          <Card sx={{ width: '15rem', margin: '1rem', height: '25rem' }}>
-            <img id={book.link} src={book.coverURL} style={{ width: '100%', height: '65%'}} />
-            <CardContent sx={{ height: '4rem' }}>
-              <Typography gutterBottom variant='subtitle1' component='div' sx={{ textAlign: 'center', verticalAlign: 'middle', padding: 'auto', fontSize: '1.8vh' }}>
-                {book.title}
-              </Typography>
-            </CardContent>
-            <CardActions sx={{ display: 'flex', justifyContent: 'center' }}>
-              <Button size='medium' style={{ color:'#0c6057' }} value={JSON.stringify(book)} onClick={e => handleReadBook(JSON.parse(e.target.value))}>Read</Button>
-              <Button size='medium' value={book} color='warning' onClick={() => {
-                setRemoveBook(book);
-                setOpenRemove(true);
-              }}>Remove</Button>
-            </CardActions>
-          </Card>
+            <Card sx={{ width: '15rem', margin: '1rem', height: '25rem' }}>
+              <img id={book.link} src={book.coverURL} style={{ width: '100%', height: '65%' }} />
+              <CardContent sx={{ height: '4rem' }}>
+                <Typography gutterBottom variant='subtitle1' component='div' sx={{ textAlign: 'center', verticalAlign: 'middle', padding: 'auto', fontSize: '1.8vh' }}>
+                  {book.title}
+                </Typography>
+              </CardContent>
+              <CardActions sx={{ display: 'flex', justifyContent: 'center' }}>
+                <Button size='medium' style={{ color: '#0c6057' }} value={JSON.stringify(book)} onClick={e => handleReadBook(JSON.parse(e.target.value))}>Read</Button>
+                <Button size='medium' value={book} color='warning' onClick={() => {
+                  setRemoveBook(book);
+                  setOpenRemove(true);
+                }}>Remove</Button>
+              </CardActions>
+            </Card>
           ))}
       </div>
       <StyledModal
@@ -340,7 +358,7 @@ const MyAccount = (props) => {
         BackdropComponent={Backdrop}
       >
         <Box sx={style}>
-          <h2 id="unstyled-modal-title" style={{textAlign: 'center', fontSize: '2vh'}} >{`Are you sure you want to remove ${removeBook.title}?`}</h2>
+          <h2 id="unstyled-modal-title" style={{ textAlign: 'center', fontSize: '2vh' }} >{`Are you sure you want to remove ${removeBook.title}?`}</h2>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <Button size='small' color='warning' value={removeBook['_id']} onClick={(e) => handleRemoveBook(e.target.value)}>Yes</Button>
             <Button size='small' style={{ color: '#0c6057' }} onClick={() => {
@@ -358,7 +376,7 @@ const MyAccount = (props) => {
         BackdropComponent={Backdrop}
       >
         <Box sx={style}>
-          <Upload handleCloseUpload={handleCloseUpload} getUserData={getUserData}/>
+          <Upload handleCloseUpload={handleCloseUpload} getUserData={getUserData} />
         </Box>
       </StyledModal>
     </div>

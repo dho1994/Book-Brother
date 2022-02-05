@@ -4,7 +4,7 @@ import { signOut, getAuth } from "firebase/auth";
 
 export const GlobalContext = React.createContext({
   value: "",
-  setValue: () => {},
+  setValue: () => { },
 });
 
 const GlobalContextProvider = (props) => {

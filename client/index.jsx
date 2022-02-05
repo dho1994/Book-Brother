@@ -4,8 +4,8 @@ import App from "./components/App.jsx";
 import GlobalContextProvider from "./components/GlobalContextProvider.jsx";
 
 ReactDOM.render(
-    <GlobalContextProvider>
-      <App />
-    </GlobalContextProvider>,
+  <GlobalContextProvider>
+    <App />
+  </GlobalContextProvider>,
   document.getElementById("app")
 );

@@ -477,7 +477,12 @@ const Player = (props) => {
           <Button
             variant='contained'
             size='small'
-            style={{ backgroundColor: '#11A797' }}
+            sx={{
+              backgroundColor: '#11A797',
+              ':hover': {
+                backgroundColor: '#70baa4',
+              },
+            }}
             type='button'
             onClick={() => {
               handlePause();
@@ -491,7 +496,13 @@ const Player = (props) => {
         </div>
       </div>
       <Button
-        style={{ backgroundColor: '#0c6057', position: 'absolute', top: '2%', left: '40vw', zIndex: 30, fontSize: '70%', padding: '0.5vw 2vw' }}
+        style={{ position: 'absolute', top: '2%', left: '40vw', zIndex: 30, fontSize: '70%', padding: '0.5vw 2vw' }}
+        sx={{
+          backgroundColor: '#11A797',
+          ':hover': {
+            backgroundColor: '#70baa4',
+          },
+        }}
         variant='contained'
         type='button'
         onClick={handleBackToAccount}
