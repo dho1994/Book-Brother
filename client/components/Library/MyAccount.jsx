@@ -186,13 +186,13 @@ const MyAccount = (props) => {
           if (book.title.slice(book.title.length - 5, book.title.length) === '.epub') {
             book.title = book.title.slice(0, book.title.length - 5);
           }
+          book.title = Constants.EDITED_TITLES[book.link] || book.title;
           book.id = index;
           return book;
         });
-        const filteredData = orderedData.map((book) => ({ ...book, title: Constants.EDITED_TITLES[book.link] || book.title}));
-        console.log(filteredData)
-        setBooks(filteredData);
-        setDisplayBooks(filteredData);
+        console.log(orderedData)
+        setBooks(orderedData);
+        setDisplayBooks(orderedData);
       })
       .catch(err => {
         console.log('Error from sending get request /library: ', err);

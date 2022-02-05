@@ -124,13 +124,12 @@ const Library = (props) => {
             })
             .catch((err) => console.error(err));
           });
-          book.title = book.Key.slice(0, book.Key.length - 5);
+          book.title = Constants.EDITED_TITLES[book.URL] || book.Key.slice(0, book.Key.length - 5);
           book.id = index;
           return book;
         });
-        const filteredData = orderedData.map((book) => ({ ...book, title: Constants.EDITED_TITLES[book.URL] || book.title}));
-        setBooks(filteredData);
-        setDisplayBooks(filteredData);
+        setBooks(orderedData);
+        setDisplayBooks(orderedData);
       })
       .catch(err => {
         console.log('Error from sending get request /library: ', err);

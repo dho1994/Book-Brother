@@ -6,7 +6,7 @@ const util = require('util');
 
 const unlinkFile = util.promisify(fs.unlink);
 const app = express();
-const PORT = 3001;
+const PORT = 3002;
 const compression = require('compression');
 
 const upload = multer({ dest: 'uploads/' });
