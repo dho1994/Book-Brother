@@ -23,7 +23,7 @@ import AddIcon from '@mui/icons-material/Add';
 import Search from './Search';
 import Upload from './Upload';
 import Epub from 'epubjs/lib/index';
-import EXCLUDED_BOOKS from '../constants.js';
+import Constants from '../constants.js';
 
 const Library = (props) => {
   const [books, setBooks] = useState([]);
@@ -102,9 +102,8 @@ const Library = (props) => {
   const getBookLibrary = () => {
     axios.get('/library')
       .then(response => {
-        const data = response.data.reverse().filter((book) => EXCLUDED_BOOKS[book.URL] !== true);
-        console.log(data)
-        console.log(EXCLUDED_BOOKS)
+        const data = response.data.reverse()
+          .filter((book) => Constants.EXCLUDED_BOOKS[book.URL] !== true)
         //expect data to be an array of book objects with 5 props: Key, Etag, size, URL
         const orderedData = data.map((book, index) => {
           let currBook = new Epub(book.URL);
@@ -125,8 +124,10 @@ const Library = (props) => {
           book.id = index;
           return book;
         })
-        setBooks(orderedData);
-        setDisplayBooks(orderedData);
+        const filteredData = orderedData.map((book) => ({ ...book, title: Constants.EDITED_TITLES[book.URL] || book.title}));
+        console.log(filteredData)
+        setBooks(filteredData);
+        setDisplayBooks(filteredData);
       })
       .catch(err => {
         console.log('Error from sending get request /library: ', err);
