@@ -103,7 +103,7 @@ const Library = (props) => {
     axios.get('/library')
       .then(response => {
         const data = response.data.reverse()
-          .filter((book) => Constants.EXCLUDED_BOOKS[book.URL] !== true)
+          .filter((book) => Constants.EXCLUDED_BOOKS[book.URL] !== true);
         //expect data to be an array of book objects with 5 props: Key, Etag, size, URL
         const orderedData = data.map((book, index) => {
           let currBook = new Epub(book.URL);
@@ -123,9 +123,8 @@ const Library = (props) => {
           book.title = book.Key.slice(0, book.Key.length - 5);
           book.id = index;
           return book;
-        })
+        });
         const filteredData = orderedData.map((book) => ({ ...book, title: Constants.EDITED_TITLES[book.URL] || book.title}));
-        console.log(filteredData)
         setBooks(filteredData);
         setDisplayBooks(filteredData);
       })
