@@ -58,13 +58,10 @@ const Login = () => {
   return (
     <div className="login">
       <img src="./assets/Logo.png" />
-      <h3 style={{ fontSize: '2vh', width: '70%', textAlign: 'center' }}>
-        Don’t have time to read? No problem, just upload your book to the app and start getting knowledge injected into your earbuds.
-      </h3>
       <div>
         <form type="submit" onSubmit={loginUser}>
-          <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column', p: '0', border: '1px solid #212121', padding: '2vh', borderRadius: '5px 5px 5px', boxShadow: '0px 0px 3px 2px rgba(0, 0, 0, 0.2)', mt: '1rem', width: '35vh', mixWidth: '10px', height: 'fit-content' }}>
-            <h2 style={{ fontSize: '3vh' }} > Sign-in</h2>
+          <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column', p: '0', border: '1px solid #212121', padding: '2vh', borderRadius: '5px 5px 5px', boxShadow: '0px 0px 3px 2px rgba(0, 0, 0, 0.2)', mt: '1rem', width: '35vh', mixWidth: '10px', height: '45vh', background: 'rgba(0,0,0,0.1)' }}>
+            <h2 style={{ fontSize: '3vh' }} > Sign In</h2>
             <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
               <FormControl sx={{ m: 1, width: '35vh', mixWidth: '8px' }} variant="standard" required>
                 <InputLabel htmlFor="email" style={{ fontSize: '2vh' }}>Email</InputLabel>
@@ -133,7 +130,7 @@ const Login = () => {
             </Button>
             <div style={{ margin: "2em 0 1em 0", fontSize: "2vh" }}>
               Need to create an account? &nbsp;
-              <Link to="/signup">Sign-Up</Link>
+              <Link to="/signup">Sign Up</Link>
             </div>
           </Box>
         </form>

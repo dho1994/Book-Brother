@@ -473,7 +473,7 @@ const Player = (props) => {
       </div>
       <div style={{ height: '20vh', position: 'absolute', top: '80%', left: '0%', width: '100%', zIndex: 20 }}>
         <Controls isPlaying={isPlaying} showModal={showModal} setShowModal={setShowModal} handleResume={handleResume} handlePause={handlePause} handleVolumeChange={handleVolumeChange} setSize={setSize} parameters={parameters} setParameters={setParameters} page={page} book={props.book} voiceOptions={voiceOptions} voice={voice} setVoice={setVoice} backgroundV={backgroundV} setBackgroundV={setBackgroundV} selectedSong={selectedSong} setSelectedSong={setSelectedSong} music={music} />
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+        {/* <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
           <Button
             variant='contained'
             size='small'
@@ -493,7 +493,7 @@ const Player = (props) => {
             <SettingsVoiceIcon />
           </Button>
           <p id="transcript">Transcript: {transcript}</p>
-        </div>
+        </div> */}
       </div>
       <Button
         style={{ position: 'absolute', top: '2%', left: '40vw', zIndex: 30, fontSize: '70%', padding: '0.5vw 2vw' }}
