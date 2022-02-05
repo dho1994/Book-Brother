@@ -219,7 +219,7 @@ const Library = (props) => {
           <Card sx={{ width: '15rem', margin: '1rem', height: '25rem' }}>
             <img id={book.URL} src={book.coverURL} style={{ width: '100%', height: '65%'}} />
             <CardContent sx={{ height: '4rem' }}>
-              <Typography gutterBottom variant='subtitle1' component='div' sx={{ textAlign: 'center', verticalAlign: 'middle', padding: 'auto', fontSize: '2vh' }}>
+              <Typography gutterBottom variant='subtitle1' component='div' sx={{ textAlign: 'center', verticalAlign: 'middle', padding: 'auto', fontSize: '1.8vh', height: '100%' }}>
                 {book.title}
               </Typography>
             </CardContent>
